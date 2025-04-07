@@ -99,19 +99,19 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 	var message = ""
 
 	if body.is_in_group("Buildings"):
-		message = "Crashed into a building! Watch your surroundings."
+		get_tree().change_scene_to_file("res://Scenes/bad_buildings_and_trees.tscn")
 		reset_score()
 		
 	elif body.is_in_group("Trees"):
-		message = "Watch out for Trees! Always scan the road ahead."
+		get_tree().change_scene_to_file("res://Scenes/bad_buildings_and_trees.tscn")
 		reset_score()
 		
 	elif body.is_in_group("StopSigns"):
-		message = "You crashed into a stop sign! Always obey traffic signals." 
+		get_tree().change_scene_to_file("res://Scenes/bad_stop.tscn")  # Load the "Bad Stop" scene 
 		reset_score()
 		
 	elif body.is_in_group("OncomingLane"):
-		message = "Stay in your lane! Avoid oncoming traffic."
+		get_tree().change_scene_to_file("res://Scenes/bad_oncoming_traffic.tscn")
 		reset_score()
 		
 	elif body.is_in_group("EndBarrier"):
@@ -143,7 +143,7 @@ func display_feedback(message: String):
 	reset_car()  # Reset the car after the delay
 
 func apply_stop_sign_penalty():
-	display_feedback("You ran a stop sign! Always stop completely.")
+	get_tree().change_scene_to_file("res://Scenes/bad_stop.tscn")  # Load the "Bad Stop" scene
 	reset_score()
 
 func successfully_stopped_at_stop_sign():
@@ -182,7 +182,6 @@ func close_end_popup():
 	reset_car()  # Reset the car position
 
 func _on_oncoming_lane_entered(body: Node3D):
-	print("🚨 Car entered the oncoming lane:", body.name)
-	display_feedback("Stay in your lane! Avoid oncoming traffic.")
+	get_tree().change_scene_to_file("res://Scenes/bad_oncoming_traffic.tscn")
 	reset_score()
 	
