@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bx2phkbiucpns"]
+[gd_scene load_steps=5 format=3 uid="uid://bx2phkbiucpns"]
 
 [ext_resource type="Script" path="res://Scripts/bad_buildings_and_trees.gd" id="1_wrrrr"]
 [ext_resource type="Texture2D" uid="uid://c56h7qsr17hnn" path="res://assets/bad building and trees.jpg" id="2_qs1ws"]
 [ext_resource type="FontFile" uid="uid://cxi2psa1opte" path="res://assets/Font/ARCADE_N.TTF" id="3_jb0ro"]
+[ext_resource type="AudioStream" uid="uid://dg75o3mv4cav1" path="res://assets/bad_buildings_and_trees.mp3" id="4_3pp06"]
 
 [node name="Bad_Buildings_And_Trees" type="Control"]
 layout_mode = 3
@@ -30,5 +31,9 @@ offset_bottom = 595.0
 theme_override_fonts/font = ExtResource("3_jb0ro")
 theme_override_font_sizes/font_size = 25
 text = "OK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3pp06")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1geubq8ce68q"]
+[gd_scene load_steps=5 format=3 uid="uid://c1geubq8ce68q"]
 
 [ext_resource type="Script" path="res://Scripts/bad_oncoming_traffic.gd" id="1_1t3xk"]
 [ext_resource type="Texture2D" uid="uid://btv6gbqpa7tlv" path="res://assets/bad oncoming traffic.jpg" id="2_e6afm"]
 [ext_resource type="FontFile" uid="uid://cxi2psa1opte" path="res://assets/Font/ARCADE_N.TTF" id="3_ltg6h"]
+[ext_resource type="AudioStream" uid="uid://bo5c3k0htcvu0" path="res://assets/bad_oncoming_traffic.mp3" id="4_gphmn"]
 
 [node name="Bad_Oncoming_Traffic" type="Control"]
 layout_mode = 3
@@ -30,5 +31,9 @@ offset_bottom = 595.0
 theme_override_fonts/font = ExtResource("3_ltg6h")
 theme_override_font_sizes/font_size = 25
 text = "OK"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gphmn")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
