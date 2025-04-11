@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://ygn4at51tw4j"]
+[gd_scene load_steps=5 format=3 uid="uid://ygn4at51tw4j"]
 
 [ext_resource type="Script" path="res://Scripts/user_interface_2.gd" id="1_g57kd"]
 [ext_resource type="Texture2D" uid="uid://w1kqkqj7ri7b" path="res://assets/Models/Instructor_Check_List_Screen.jpg" id="2_vpcmu"]
 [ext_resource type="FontFile" uid="uid://cxi2psa1opte" path="res://assets/Font/ARCADE_N.TTF" id="3_4andn"]
+[ext_resource type="AudioStream" uid="uid://7y23n038i34p" path="res://assets/Steps.mp3" id="4_jdt2j"]
 
 [node name="User Interface 2" type="Control"]
 layout_mode = 3
@@ -30,5 +31,9 @@ offset_bottom = 592.0
 theme_override_fonts/font = ExtResource("3_4andn")
 theme_override_font_sizes/font_size = 25
 text = "NEXT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jdt2j")
+autoplay = true
 
 [connection signal="pressed" from="Next Button 2" to="." method="_on_next_button_2_pressed"]

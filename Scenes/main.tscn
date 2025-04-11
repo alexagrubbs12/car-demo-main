@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bqycjxamuefe4"]
+[gd_scene load_steps=19 format=3 uid="uid://bqycjxamuefe4"]
 
 [ext_resource type="Script" path="res://Scripts/CarReset.gd" id="1_ss6kg"]
 [ext_resource type="PackedScene" uid="uid://c2kqwsup24kcx" path="res://Scenes/car.tscn" id="2_47geq"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dj7fa2vh2suol" path="res://Scenes/stopsign.tscn" id="6_j4p5i"]
 [ext_resource type="PackedScene" uid="uid://mj1vyx3xnbwa" path="res://Scenes/npc_car.tscn" id="7_lc8ay"]
 [ext_resource type="PackedScene" uid="uid://c7ot1ux4iiokk" path="res://Scenes/buildings.tscn" id="8_bxeph"]
+[ext_resource type="AudioStream" uid="uid://by0oip24cc8lq" path="res://assets/game_music.mp3" id="9_4xhdk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_b7tlo"]
 sky_top_color = Color(0.419608, 0.54902, 0.619608, 1)
@@ -434,5 +435,10 @@ shape = SubResource("BoxShape3D_s3nav")
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="OncomingLane" groups=["OncomingLane"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -426.655, 4.34218, -24.8534)
 shape = SubResource("BoxShape3D_n2c43")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4xhdk")
+volume_db = -12.0
+autoplay = true
 
 [connection signal="body_entered" from="OncomingLane" to="car" method="_on_oncoming_lane_entered"]
